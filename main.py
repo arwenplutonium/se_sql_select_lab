@@ -7,30 +7,29 @@ import pandas as pd
 # Connect to the database
 conn = sqlite3.connect('data.sqlite')
 
-
 # STEP 2
-# Replace None with your code
+# employee number and last name
 df_first_five = pd.read_sql("""
 SELECT employeeNumber, lastName
 FROM employees
 """, conn)
 
 # STEP 3
-# Replace None with your code
+# same columns, order swapped
 df_five_reverse = pd.read_sql("""
 SELECT lastName, employeeNumber
 FROM employees
 """, conn)
 
 # STEP 4
-# Replace None with your code
+# employee number renamed to ID
 df_alias = pd.read_sql("""
 SELECT lastName, employeeNumber AS ID
 FROM employees
 """, conn)
 
 # STEP 5
-# Replace None with your code
+# flag each employee as executive or not
 df_executive = pd.read_sql("""
 SELECT
     employeeNumber,
@@ -45,28 +44,28 @@ FROM employees
 """, conn)
 
 # STEP 6
-# Replace None with your code
+# character count of each last name
 df_name_length = pd.read_sql("""
 SELECT LENGTH(lastName) AS name_length
 FROM employees
 """, conn)
 
 # STEP 7
-# Replace None with your code
+# first two letters of each job title
 df_short_title = pd.read_sql("""
 SELECT SUBSTR(jobTitle, 1, 2) AS short_title
 FROM employees
 """, conn)
 
 # STEP 8
-# Replace None with your code
+# total value of all order lines
 sum_total_price = pd.read_sql("""
 SELECT SUM(ROUND(priceEach * quantityOrdered)) AS total_price
 FROM orderdetails
 """, conn).sum().reset_index(drop=True)
 
 # STEP 9
-# Replace None with your code
+# split order date into day, month and year
 df_day_month_year = pd.read_sql("""
 SELECT
     orderDate,
